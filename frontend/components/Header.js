@@ -3,15 +3,11 @@ import styled from 'styled-components';
 import Navigation from './Navigation';
 
 const Logo = styled.h1`
-  @font-face {
-    font-family: 'radnika_next';
-    src: url('/static/radnikanext-medium-webfont.woff2');
-    format: ('woff2');
-  }
   font-size: 4rem;
   margin-left: 2rem;
+  position: relative;
   z-index: 2;
-  background: var(--red);
+  background: red;
   transform: skew(-7deg);
   a {
     color: white;
@@ -27,14 +23,16 @@ const HeaderStyles = styled.header`
     display: grid;
     grid-template-columns: auto 1fr;
     justify-content: space-between;
-    align-items: center;
+    align-items: stretch;
   }
+
   .sub-bar {
     display: grid;
+    grid-template-columns: 1fr auto;
     border-bottom: 1px solid var(--black, black);
-    grid-template-columns: auto 1fr;
   }
 `;
+
 export default function Header() {
   return (
     <HeaderStyles>
@@ -42,11 +40,13 @@ export default function Header() {
         <Logo>
           <Link href="/">Sick fits</Link>
         </Logo>
+        <Navigation />
       </div>
       <div className="sub-bar">
+        {/* <Search /> */}
         <p>Search</p>
       </div>
-      <Navigation />
+      {/* <Cart /> */}
     </HeaderStyles>
   );
 }
