@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import PropTypes from 'prop-types';
 import ItemStyles from './styles/ItemStyles';
 import Title from './styles/Title';
 import PriceTag from './styles/PriceTag';
@@ -19,3 +20,6 @@ export default function Product({ product }) {
     </ItemStyles>
   );
 }
+Product.propTypes = {
+  product: PropTypes.object,
+};
