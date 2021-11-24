@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import PropTypes from 'prop-types';
 import ItemStyles from './styles/ItemStyles';
 import Title from './styles/Title';
 import PriceTag from './styles/PriceTag';
@@ -15,11 +14,20 @@ export default function Product({ product }) {
       <Title>
         <Link href={`/product/${product.id}`}>{product.name}</Link>
       </Title>
-      <p>{product.description}</p>
       <PriceTag>{formatMoney(product.price)}</PriceTag>
+      <p>{product.description}</p>
+      <div className="buttonList">
+        <Link
+          href={{
+            pathname: 'update',
+            query: {
+              id: product.id,
+            },
+          }}
+        >
+          Edit ✏️
+        </Link>
+      </div>
     </ItemStyles>
   );
 }
-Product.propTypes = {
-  product: PropTypes.object,
-};
